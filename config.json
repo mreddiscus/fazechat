@@ -1,1 +1,32 @@
-{}
+{
+  "socket.io": {
+    "enabled": true,
+    "host": "carbon"
+  },
+  
+  "airborne": {
+    "enabled": true,
+    "url": "http://localhost:8180"
+  },
+
+  "rest": {
+    "autoGenerateProxy": true
+  },
+  
+  "auth":{
+    "enabled": true,
+    "userIdPrefix": "",
+    "rules": {
+      "^/$": {
+        "loginRequired": true,
+        "redirectUrl": "/login"
+      }
+    }
+  },
+  
+  "logging": {
+    "categories": {
+      "http.access": "off"
+    }
+  }
+}
