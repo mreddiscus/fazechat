@@ -1,0 +1,11 @@
+.fazechat_login .container {
+	position: relative;
+	width: 315px;
+	top: 100px;
+	margin: auto;
+}
+
+.fazechat_login .error {
+	color: red;
+	text-align: center;
+}

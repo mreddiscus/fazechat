@@ -1,9 +1,11 @@
 <div class="container">
-  <h1>Login</h1>
-  <label for="username">User Name</label>
-  <input type="text" name="username" id="username" />
-  <label for="password">Password</label>
-  <input type="text" name="password" id="password" />
-  <input type="button" name="login" id="login" />
-  <div id="error" class="error"></div>
+  <form class="well" id="login">
+    <h1>Login</h1>
+    <label>Username</label>
+    <input type="text" id="username" class="span3" placeholder="Username">
+    <label>Password</label>
+    <input type="password" id="password" class="span3" placeholder="Password">
+    <span id="error" class="help-block error" />
+    <button type="submit" class="btn">Login</button>
+  </form>
 </div>

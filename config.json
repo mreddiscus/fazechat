@@ -28,5 +28,9 @@
     "categories": {
       "http.access": "off"
     }
+  },
+  
+  "ui": {
+    "provider": "bootstrap"
   }
 }
