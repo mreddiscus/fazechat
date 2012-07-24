@@ -2,13 +2,30 @@
 <div class="container-fluid">
   <div class="row-fluid">
     <div class="span3">
-      <span>something here</span>
+      <ul id="room-nav" class="nav nav-tabs" data-tabs="tabs">
+        <li class="active">
+          <a data-toggle="tab" href="#friends">Friends</a>
+        </li>
+        <li>
+          <a data-toggle="tab" href="#recent">Recent</a>
+        </li>
+        <li>
+          <a data-toggle="tab" href="#public">Public</a>
+        </li>
+      </ul>
+      <div class="well left-tab-content tab-content">
+        <div class="tab-pane active" id="friends">
+          <widget id="friendList" path="widgets/friendList/" />
+        </div>
+        <div class="tab-pane" id="recent">recent</div>
+        <div class="tab-pane" id="public">public</div>
+      </div>
     </div><!--/span-->
     <div class="span9" id="content">
       <div class="hero-unit">
-        <h1>Welcome to Volary Rise</h1>
-        <p>Your one stop shop to manage all of your games' dynamic assets and virtual merchandise.</p>
-        <p><h3 class="label label-info">Use the panel on the left to add or manage your games.</h3></p>
+        <h1>Welcome to fazeChat</h1>
+        <p>Get your entertainment synchronized.</p>
+        <p><h3 class="label label-info">Use the panel on the left to add or manage your chat rooms. Manage your friends using the panel on the right.</h3></p>
       </div>
     </div><!--/span-->
   </div><!--/row-->

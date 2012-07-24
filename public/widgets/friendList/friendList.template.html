@@ -1,0 +1,16 @@
+<template name="friends" client_enabled="true">
+  <ul class="nav nav-list">
+  [[if friends && friends.length]]
+    [[each(index, friend) friends]]
+      <li id="$[id]_$[friend._id]" class="listItem item[[if index==0]] first[[/if]]">
+        <a href="#">$[friend.name]</a>
+      </li>
+    [[/each]]
+  [[else]]
+    <li class="listItem first">No friends added yet...</li>
+  [[/if]]
+  </ul>
+</template>
+
+<div id="list-container" class="list-container">
+</div>

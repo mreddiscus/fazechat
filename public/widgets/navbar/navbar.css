@@ -1,0 +1,11 @@
+.fazechat_navbar .brand img {
+  margin-right: 7px;
+  display: block;
+  float: left;
+}
+
+.fazechat_navbar .brand span {
+  margin-top: 5px;
+  display: block;
+  float: left;
+}
