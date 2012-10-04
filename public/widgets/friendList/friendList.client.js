@@ -9,11 +9,10 @@ feather.ns("fazechat");
       },
       onReady: function() {
         var me = this;
-        
-        me.options.friends = feather.auth.user.friends;
+        debugger;
         
         // Inject the friends template into the right panel
-        me.get("#list-container").empty().append($.tmpl(me.templates.friends, me.options));
+        me.get("#list-container").empty().append($.tmpl(me.templates.friends, me.options.user));
       }
     }
   });
