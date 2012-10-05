@@ -6,17 +6,8 @@
     "request": {
       "version": "2.9.203"
     },
-    "airborne_client": {
-      "version": "0.0.8",
-      "from": "git+ssh://git@github.com:theVolary/airborne_client.git",
-      "dependencies": {
-        "request": {
-          "version": "2.9.203"
-        },
-        "json-schema": {
-          "version": "0.2.0"
-        }
-      }
+    "json-schema": {
+       "version": "0.2.0"
     }
   }
 }
