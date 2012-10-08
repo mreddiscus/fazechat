@@ -1,0 +1,12 @@
+{
+  "socket.io": {
+    "enabled": true,
+    "host": "carbon"
+  },
+  
+  "airborne": {
+    "enabled": true,
+    "url": "http://baconfarm.org:8180"
+  }
+
+}

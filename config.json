@@ -6,7 +6,7 @@
   
   "airborne": {
     "enabled": true,
-    "url": "http://localhost:8180"
+    "url": "http://baconfarm.org:8180"
   },
 
   "rest": {
