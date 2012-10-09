@@ -7,6 +7,17 @@
   "airborne": {
     "enabled": true,
     "url": "http://baconfarm.org:8180"
+  },
+  
+  "auth":{
+    "enabled": true,
+    "userIdPrefix": "",
+    "rules": {
+      "^/$": {
+        "loginRequired": false,
+        "redirectUrl": "/login"
+      }
+    }
   }
 
 }
