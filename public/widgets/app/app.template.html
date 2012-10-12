@@ -1,7 +1,7 @@
 <widget id="navbar" path="widgets/navbar/" />
 <div class="container-fluid">
   <div class="row-fluid">
-    <div class="span3">
+    <div class="collapsible right socialpanel span3" id="socialpanel">
       <ul id="room-nav" class="nav nav-tabs" data-tabs="tabs">
         <li class="active">
           <a data-toggle="tab" href="#friends">Friends</a>
@@ -15,25 +15,32 @@
       </ul>
       <div class="well left-tab-content tab-content">
         <div class="tab-pane active" id="friends">
-          <widget id="friendList" path="widgets/friendList/" />
+          Friends
         </div>
-        <div class="tab-pane" id="recent">recent</div>
-        <div class="tab-pane" id="public">public</div>
+        <div class="tab-pane" id="recent">
+          Recent
+        </div>
+        <div class="tab-pane" id="public">
+          Public
+        </div>
       </div>
-    </div><!--/span-->
-    <div class="span9" id="content">
-      <div class="hero-unit">
-        <h1>Welcome to fazeChat</h1>
-        <p>Get your entertainment synchronized.</p>
-        <p><h3 class="label label-info">Use the panel on the left to add or manage your chat rooms. Manage your friends using the panel on the right.</h3></p>
+    </div>
+    <div class="collapsible right closed chatpanel span1" id="chatpanel">
+      <div class="well">
+        <span>This is where the chat widget goes</span>
       </div>
-    </div><!--/span-->
-  </div><!--/row-->
+    </div>
+    <div class="collapsible left mediabrowser span8" id="mediabrowser">
+      <div class="well">
+        <span>This is where the media browser goes</span>
+      </div>
+    </div>
+  </div>
 
-  <hr>
+  <hr />
 
   <footer>
     <p>Footers FTW</p>
   </footer>
 
-</div><!--/.fluid-container-->
+</div>

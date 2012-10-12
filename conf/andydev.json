@@ -8,29 +8,16 @@
     "enabled": true,
     "url": "http://baconfarm.org:8180"
   },
-
-  "rest": {
-    "autoGenerateProxy": true
-  },
   
   "auth":{
     "enabled": true,
     "userIdPrefix": "",
     "rules": {
       "^/$": {
-        "loginRequired": true,
+        "loginRequired": false,
         "redirectUrl": "/login"
       }
     }
-  },
-  
-  "logging": {
-    "categories": {
-      "http.access": "off"
-    }
-  },
-  
-  "ui": {
-    "provider": "bootstrap"
   }
+
 }

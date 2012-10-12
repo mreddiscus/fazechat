@@ -1,5 +1,4 @@
 body {
-  padding-top: 60px;
   padding-bottom: 40px;
 }
 
@@ -16,37 +15,9 @@ body {
   min-height: 150px;
 }
 
-/* general collection lists / editing */
-.rise-collection .nav-header {
-  overflow: hidden;
+.fazechat_app .collapsible.closed.right {
+  background-image: url('/assets/images/arrow-right-100.png');
+  background-position: center center;
+  background-repeat: no-repeat;
 }
 
-.rise-collection .nav-header .btn {
-  margin-right: 0px;
-  margin-top: -3px;
-}
-
-.rise-collection ul li.listItem {
-  padding: 5px;
-  border-top: 1px dotted #ccc;
-}
-
-.rise-collection ul li.listItem.first {
-  border-top: none;
-}
-
-.rise-collection ul li.listItem.item.label-info a {
-  font-weight: bold;
-  font-size: 16px;
-  color: white;
-}
-
-.doc-editor .left-panel {
-  float: left;
-  width: 50%;
-}
-
-.doc-editor .right-panel {
-  float: right;
-  width: 50%;
-}
