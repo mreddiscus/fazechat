@@ -10,12 +10,21 @@ feather.ns("fazechat");
       onReady: function() {
         var me = this;
         
+      },
+      bindUI: function() {
+        var me = this;
+      
+        me.bindTabs();
+      },
+      bindTabs: function() {
+        var me = this;
+        
         me.get('#room-nav a').click(function(e) {
           e.preventDefault();
           
           $(this).tab('show');
         });
-                
+        
         me.get('a[data-toggle="tab"]').on('shown', function(e) {
           var stripHrefId = function(target) {
             return target.href.split('#')[1];
@@ -28,6 +37,14 @@ feather.ns("fazechat");
           me.get('#' + stripHrefId(e.target)).addClass('active'); // show the new tab
           
         });     
+        
+      },
+      addTab: function() {
+        // <widget id="$[tabData.id]" path="widgets/chatWidget/">
+          // <options>
+            // <option name="roomId" value="$[tabData.id]" />
+          // </options>
+        // </widget>
       }
     }
   });
