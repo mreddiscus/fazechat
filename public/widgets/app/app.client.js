@@ -10,6 +10,7 @@ feather.ns("fazechat");
       onReady: function() {
         var me = this;
         
+        me.bindUI();
       },
       bindUI: function() {
         var me = this;
