@@ -1,0 +1,14 @@
+<template name="chatPanelTab" client_enabled="true">
+  <li>
+    <a data-toggle="tab" href="#${id}_$[tabData.id]">$[tabData.name]</a>
+  </li>
+</template>
+
+<template name="chatPanelTabContent" client_enabled="true">
+  <div class="tab-pane" id="${id}_$[tabData.id]" />
+</template>
+
+<ul id="chat-tabs-nav" class="nav nav-tabs" data-tabs="tabs">
+</ul>
+<div id="chat-tabs-body" class="well left-tab-content tab-content">
+</div>

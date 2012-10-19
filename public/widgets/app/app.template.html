@@ -1,71 +1,14 @@
-<template name="chatPanelTab" client_enabled="true">
-  <li>
-    <a data-toggle="tab" href="#$[tabData.id]">$[tabData.name]</a>
-  </li>
-</template>
-
-<template name="chatPanelTabContent" client_enabled="true">
-  <div class="tab-pane" id="$[tabData.id]" />
-</template>
 
 <widget id="navbar" path="widgets/navbar/" />
 <div class="container-fluid">
   <div class="row-fluid">
-    <div class="collapsible right socialpanel span3" id="socialpanel">
-      <ul id="room-nav" class="nav nav-tabs" data-tabs="tabs">
-        <li class="active">
-          <a data-toggle="tab" href="#friends">Friends</a>
-        </li>
-        <li>
-          <a data-toggle="tab" href="#recent">Recent</a>
-        </li>
-        <li>
-          <a data-toggle="tab" href="#public">Public</a>
-        </li>
-      </ul>
-      <div class="well left-tab-content tab-content">
-        <div class="tab-pane active" id="friends">
-          Friends
-        </div>
-        <div class="tab-pane" id="recent">
-          Recent
-        </div>
-        <div class="tab-pane" id="public">
-          Public
-        </div>
-      </div>
-    </div>
     
-    <div class="collapsible right closed chatpanel span1" id="chatpanel">
-      <ul id="room-nav" class="nav nav-tabs" data-tabs="tabs">
-        <li class="active">
-          <a data-toggle="tab" href="#friends">Friends</a>
-        </li>
-        <li>
-          <a data-toggle="tab" href="#recent">Recent</a>
-        </li>
-        <li>
-          <a data-toggle="tab" href="#public">Public</a>
-        </li>
-      </ul>
-      <div class="well left-tab-content tab-content">
-        <div class="tab-pane active" id="friends">
-          Friends
-        </div>
-        <div class="tab-pane" id="recent">
-          Recent
-        </div>
-        <div class="tab-pane" id="public">
-          Public
-        </div>
-      </div>
-    </div>
+    <widget path="widgets/socialController/" id="socialController" class="collapsible span3" />
     
-    <div class="collapsible left mediabrowser span8" id="mediabrowser">
-      <div class="well">
-        <span>This is where the media browser goes</span>
-      </div>
-    </div>
+    <widget path="widgets/chatController/" id="chatController" class="collapsible span1" />
+    
+    <widget path="widgets/mediaController/" id="mediaController" class="collapsible span8" />
+
   </div>
 
   <hr />
