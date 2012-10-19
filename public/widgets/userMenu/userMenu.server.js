@@ -5,7 +5,7 @@ exports.getWidget = function(feather, cb) {
     prototype: {
   	  logout: feather.Widget.serverMethod(function(_cb) {
   	  	var me = this;
-        rise.api.auth.logout(me.request.session.id, function(err, newSession) {
+        fazechat.api.auth.logout(me.request.session.id, function(err, newSession) {
           me.request.session = newSession;
           _cb(null, newSession.id);
         });

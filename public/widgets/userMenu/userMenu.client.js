@@ -13,7 +13,7 @@ feather.ns("fazechat");
         var me = this;
         
         me.domEvents.bind(me.get("#settings"), 'click', function(e) {
-          // var user = rise.user;
+          // var user = fazechat.user;
           // me.showsettings(user.username);
         });
 
