@@ -1,0 +1,13 @@
+.fazechat_chatPanel {
+  background-color: white;
+}
+
+.fazechat_chatPanel .user-list {
+  height: 100px;
+  border: 1px solid black;
+}
+
+.fazechat_chatPanel .chat-list {
+  height: 400px;
+  border: 1px solid black;
+}
