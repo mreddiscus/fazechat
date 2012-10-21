@@ -1,0 +1,34 @@
+<template name="userEntry" client_enabled="true">
+  <li>
+    <a href="">$[userName]</a>
+  </li>
+</template>
+
+<template name="chatEntry" client_enabled="true">
+  <li>
+    <span class="info">
+      $[userName]
+      <br />
+      $[timeStamp]
+    </span>
+    <span class="message">
+      $[message]
+    </span>
+  </li>
+</template>
+
+<div class="user-list">
+  <ul id="user-list">
+  </ul>
+</div>
+
+<div class="chat-list">
+  <ul id="chat-list">
+  </ul>
+</div>
+
+<div class="chat-input">
+  <textarea id="chat-input" />
+  <button class="btn btn-large" type="button" id="chat-submit">SEND</button>
+</div>
+
