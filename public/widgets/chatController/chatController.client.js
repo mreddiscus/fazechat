@@ -50,7 +50,9 @@ feather.ns("fazechat");
         var me = this;
         var tabId = me.id + "_" + tabData.id;
         
-        me.get("#chat-tabs-nav").append('<li><a data-toggle="tab" href="#' + tabId + '">' + tabData.name + '</a></li>');
+        me.get("#chat-tabs-nav").append('<li><a data-toggle="tab" href="#'
+        + tabId + '">' + tabData.name + '<button class="close">&times;</button></a></li>');
+        
         var $new = $(this).closest('li').clone().appendTo('#cart ul')
         me.get("#chat-tabs-body").append('<div class="tab-pane" id="' + tabId + '" ></div>').each(function() {
 
