@@ -1,0 +1,16 @@
+.fazechat_chatController {
+
+
+}
+
+.fazechat_chatController .chat-tabs-nav .close {
+  padding-left: 5px;
+}
+
+.fazechat_chatController .chat-tabs-nav .close {
+  display: none;
+}
+
+.fazechat_chatController .chat-tabs-nav li.active .close {
+  display: block;
+}
