@@ -42,6 +42,22 @@ feather.ns("fazechat");
           }
           me.get('#' + stripHrefId(e.target)).addClass('active'); // show the new tab
           
+        });
+        
+        me.get('a[data-toggle="tab"] button.close').click(function(e) {
+          debugger;
+          
+          var widgetId = $(this).attr("data-widget-id");
+          
+          var chatWidget = me.get("#" + widgetId);
+          
+          var stripHrefId = function(target) {
+            return target.href.split('#')[1];
+          };
+          
+          // e.target = activated tab
+          
+          
         });     
         
       },
@@ -51,7 +67,7 @@ feather.ns("fazechat");
         var tabId = me.id + "_" + tabData.id;
         
         me.get("#chat-tabs-nav").append('<li><a data-toggle="tab" href="#'
-        + tabId + '">' + tabData.name + '<button class="close">&times;</button></a></li>');
+        + tabId + '">' + tabData.name + '<button data-widget-id="' + tabId + '" class="close">&times;</button></a></li>');
         
         var $new = $(this).closest('li').clone().appendTo('#cart ul')
         me.get("#chat-tabs-body").append('<div class="tab-pane" id="' + tabId + '" ></div>').each(function() {
@@ -67,7 +83,7 @@ feather.ns("fazechat");
             }
           });
         });
-
+        
       }
     }
   });

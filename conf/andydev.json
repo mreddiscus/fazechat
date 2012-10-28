@@ -14,7 +14,7 @@
     "userIdPrefix": "",
     "rules": {
       "^/$": {
-        "loginRequired": false,
+        "loginRequired": true,
         "redirectUrl": "/login"
       }
     }
