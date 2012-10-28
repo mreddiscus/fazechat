@@ -15,19 +15,39 @@ feather.ns("fazechat");
         me.domEvents.bind(me.get("#login"), "submit", function(e) {
           e.preventDefault();
           
-          var username = me.get("#username").val();
-          var password = me.get("#password").val();
+          me.login();
+        });
+        
+        me.domEvents.bind(me.get("#signup"), "submit", function(e) {
+          e.preventDefault();
           
-          me.login(username, password);
+          me.signup();
         });
       },
       
-      login: function(username, password) {
+      login: function() {
         var me = this;
         
         var errorText = me.get('#error');
         
-        me.server_login([{ username: username, password: password }], function(args) {
+        me.server_login([me.model.login], function(args) {
+          if(args.success) {
+            //redirect to main page
+            window.location = "/";
+          } else {
+            errorText.empty().append(args.err);
+          }
+        });
+      },
+      
+      signup: function() {
+        debugger;
+        var me = this;
+        
+        var errorText = me.get('#error');
+        
+        me.server_signup([me.model.signup], function(args) {
+          debugger;
           if(args.success) {
             //redirect to main page
             window.location = "/";
