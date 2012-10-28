@@ -9,6 +9,7 @@ feather.ns("fazechat");
       },
       onReady: function() {
         var me = this;
+        me.tabList = {};
         
         me.bindUI();
       },
@@ -44,33 +45,25 @@ feather.ns("fazechat");
           
         });
         
+        // Tab close button click event
         me.get('a[data-toggle="tab"] button.close').click(function(e) {
-          debugger;
           
-          var widgetId = $(this).attr("data-widget-id");
+          var tabId = $(this).attr("data-tab-id");
           
-          var chatWidget = me.get("#" + widgetId);
-          
-          var stripHrefId = function(target) {
-            return target.href.split('#')[1];
-          };
-          
-          // e.target = activated tab
-          
-          
+          me.removeTab(tabId);          
         });     
         
       },
       
       addTab: function(tabData) {
         var me = this;
-        var tabId = me.id + "_" + tabData.id;
+        var tabId = me.id + "_" + tabData.id
+          , newTab = {};
         
-        me.get("#chat-tabs-nav").append('<li><a data-toggle="tab" href="#'
-        + tabId + '">' + tabData.name + '<button data-widget-id="' + tabId + '" class="close">&times;</button></a></li>');
+        newTab.tab = $('<li><a data-toggle="tab" href="#' + tabId + '">' + tabData.name 
+        + '<button data-tab-id="' + tabData.id + '" class="close">&times;</button></a></li>').appendTo(me.get("#chat-tabs-nav"));
         
-        var $new = $(this).closest('li').clone().appendTo('#cart ul')
-        me.get("#chat-tabs-body").append('<div class="tab-pane" id="' + tabId + '" ></div>').each(function() {
+        newTab.body = $('<div class="tab-pane" id="' + tabId + '" ></div>').appendTo(me.get("#chat-tabs-body")).each(function() {
 
           feather.Widget.load({
             path: "widgets/chatController/chatPanel/",
@@ -84,6 +77,19 @@ feather.ns("fazechat");
           });
         });
         
+        me.tabList[tabData.id] = newTab;
+        
+      },
+      
+      removeTab: function(tabId) {
+        var me = this;
+        
+        // Remove each chat element, like the tab and content area
+        _.each(me.tabList[tabId], function(item, key) {
+          item.remove();
+        });
+        
+        delete me.tabList[tabId];
       }
     }
   });

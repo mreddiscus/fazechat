@@ -2,6 +2,10 @@ body {
   padding-bottom: 40px;
 }
 
+.nav-tabs {
+  min-height: 36px;
+}
+
 .sidebar-nav {
   padding: 9px 0;
 }
