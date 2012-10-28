@@ -41,13 +41,11 @@ feather.ns("fazechat");
       },
       
       signup: function() {
-        debugger;
         var me = this;
         
         var errorText = me.get('#error');
         
         me.server_signup([me.model.signup], function(args) {
-          debugger;
           if(args.success) {
             //redirect to main page
             window.location = "/";
