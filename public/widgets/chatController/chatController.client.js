@@ -11,14 +11,14 @@ feather.ns("fazechat");
         var me = this;
         me.tabList = {};
         
+        me.addTab({id: "12345", name: "test"});
+        me.addTab({id: "54321", name: "test2"});
         me.bindUI();
       },
       
       bindUI: function() {
         var me = this;
         
-        me.addTab({id: "12345", name: "test"});
-        me.addTab({id: "54321", name: "test2"});
         me.bindTabs();
       },
       
@@ -60,9 +60,11 @@ feather.ns("fazechat");
         var tabId = me.id + "_" + tabData.id
           , newTab = {};
         
+        // Append the tab
         newTab.tab = $('<li><a data-toggle="tab" href="#' + tabId + '">' + tabData.name 
         + '<button data-tab-id="' + tabData.id + '" class="close">&times;</button></a></li>').appendTo(me.get("#chat-tabs-nav"));
         
+        // Append the body
         newTab.body = $('<div class="tab-pane" id="' + tabId + '" ></div>').appendTo(me.get("#chat-tabs-body")).each(function() {
 
           feather.Widget.load({
@@ -76,6 +78,12 @@ feather.ns("fazechat");
             }
           });
         });
+
+        // Select new tab if none are selected
+        if (!me.get("ul.chat-tabs-nav li.active").length) {
+          var tabs = me.get('#chat-tabs-nav a');
+          $(_.last(tabs)).tab('show');
+        }
         
         me.tabList[tabData.id] = newTab;
         
@@ -88,6 +96,12 @@ feather.ns("fazechat");
         _.each(me.tabList[tabId], function(item, key) {
           item.remove();
         });
+        
+        // Select new tab if none are selected
+        if (!me.get("ul.chat-tabs-nav li.active").length) {
+          var tabs = me.get('#chat-tabs-nav a');
+          $(_.last(tabs)).tab('show');
+        }
         
         delete me.tabList[tabId];
       }
