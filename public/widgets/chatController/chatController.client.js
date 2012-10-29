@@ -74,7 +74,7 @@ feather.ns("fazechat");
             clientOptions: {
               parent: me,
               container: $("#" + tabId),
-              keepContainerOnDispose: true
+              keepContainerOnDispose: false
             }
           });
         });
@@ -86,12 +86,13 @@ feather.ns("fazechat");
         }
         
         me.tabList[tabData.id] = newTab;
-        
       },
       
       removeTab: function(tabId) {
         var me = this;
         
+        var tabData = me.tabList[tabId];
+
         // Remove each chat element, like the tab and content area
         _.each(me.tabList[tabId], function(item, key) {
           item.remove();
