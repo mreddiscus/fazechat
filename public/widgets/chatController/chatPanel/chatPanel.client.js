@@ -21,7 +21,10 @@ feather.ns("fazechat");
         me.domEvents.bind(me.get("#chat"), "submit", function(e) {
           e.preventDefault();
           
-          me.sendMessage(me.get("#chat-input").val());
+          var chatInput = me.get("#chat-input");
+          me.sendMessage(chatInput.val());
+          chatInput.val(""); // Clear out the chat input text
+          
         });
         
         me.get("#chat-input").keypress(function(e) {      
@@ -51,9 +54,10 @@ feather.ns("fazechat");
       },
       
       newMessage: function(args) {
-        var me = this;
+        var me = this
+          , message = args.data.message.replace("\n", "<br />");
 
-        me.get("#chat-list").append('<div><span>' + args.data.message + '</span></div>');
+        me.get("#chat-list").append('<div><span>' + message + '</span></div>');
       },
       
       newMedia: function(args) {
