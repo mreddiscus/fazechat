@@ -20,11 +20,14 @@ feather.ns("fazechat");
         // Called when you send a message
         me.domEvents.bind(me.get("#chat"), "submit", function(e) {
           e.preventDefault();
-          
+                    
           var chatInput = me.get("#chat-input");
           me.sendMessage(chatInput.val());
           chatInput.val(""); // Clear out the chat input text
           
+          // Put the scrollbar to the bottom
+          var chatList = me.get("#chat-list");
+          chatList.scrollTop( chatList.height() );
         });
         
         me.get("#chat-input").keypress(function(e) {      
