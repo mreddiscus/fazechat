@@ -24,10 +24,6 @@ feather.ns("fazechat");
           var chatInput = me.get("#chat-input");
           me.sendMessage(chatInput.val());
           chatInput.val(""); // Clear out the chat input text
-          
-          // Put the scrollbar to the bottom
-          var chatList = me.get("#chat-list");
-          chatList.scrollTop( chatList.height() );
         });
         
         me.get("#chat-input").keypress(function(e) {      
@@ -60,7 +56,17 @@ feather.ns("fazechat");
         var me = this
           , message = args.data.message.replace("\n", "<br />");
 
-        me.get("#chat-list").append('<div><span>' + message + '</span></div>');
+        var messageData = {
+          message: message,
+          userName: feather.auth.user.displayName,
+          timeStamp: new Date().toString("hh:mm tt")
+        };
+
+        me.get("#chat-list").append($.tmpl(me.templates.chatEntry, {messageData: messageData}));
+        
+        // Put the scrollbar to the bottom
+        var chatList = me.get("#chat-list");
+        chatList.scrollTop( chatList.height() );
       },
       
       newMedia: function(args) {

@@ -10,6 +10,21 @@
 
 .fazechat_chatPanel .chat-list {
   height: 400px;
+  padding: 5px 10px;
   border: 1px solid black;
   overflow-y: scroll;
+}
+
+.fazechat_chatPanel .chat-list .info {
+  margin-right: 5px;
+  border-right: 1px solid lightGrey;
+  color: #366d8a;
+}
+
+.fazechat_chatPanel .chat-list hr {
+  margin: 10px 0;
+}
+
+.fazechat_chatPanel .chat-input textarea {
+  resize: none;
 }

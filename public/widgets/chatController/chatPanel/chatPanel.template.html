@@ -6,13 +6,14 @@
 
 <template name="chatEntry" client_enabled="true">
   <span class="info">
-    $[userName]
+    $[messageData.userName]
     <br />
-    $[timeStamp]
+    $[messageData.timeStamp]
   </span>
   <span class="message">
-    $[message]
+    [[html messageData.message]]
   </span>
+  <hr />
 </template>
 
 <form id="chat">
