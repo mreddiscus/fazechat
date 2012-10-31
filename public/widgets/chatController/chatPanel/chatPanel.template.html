@@ -5,30 +5,26 @@
 </template>
 
 <template name="chatEntry" client_enabled="true">
-  <li>
-    <span class="info">
-      $[userName]
-      <br />
-      $[timeStamp]
-    </span>
-    <span class="message">
-      $[message]
-    </span>
-  </li>
+  <span class="info">
+    $[messageData.userName]
+    <br />
+    $[messageData.timeStamp]
+  </span>
+  <span class="message">
+    [[html messageData.message]]
+  </span>
+  <hr />
 </template>
 
-<div class="user-list">
-  <ul id="user-list">
-  </ul>
-</div>
+<form id="chat">
 
-<div class="chat-list">
-  <ul id="chat-list">
-  </ul>
-</div>
+  <div class="user-list" id="user-list" />
 
-<div class="chat-input">
-  <textarea id="chat-input" />
-  <button class="btn btn-large" type="button" id="chat-submit">SEND</button>
-</div>
+  <div class="chat-list" id="chat-list" />
 
+  <div class="chat-input">
+    <textarea type="textarea" id="chat-input" />
+    <button class="btn btn-large" type="submit" id="chat-submit">SEND</button>
+  </div>
+
+</form>

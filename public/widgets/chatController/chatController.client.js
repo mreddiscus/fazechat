@@ -9,15 +9,16 @@ feather.ns("fazechat");
       },
       onReady: function() {
         var me = this;
+        me.tabList = {};
         
+        me.addTab({id: "12345", name: "test"});
+        me.addTab({id: "54321", name: "test2"});
         me.bindUI();
       },
       
       bindUI: function() {
         var me = this;
         
-        me.addTab({id: "12345", name: "test"});
-        me.addTab({id: "54321", name: "test2"});
         me.bindTabs();
       },
       
@@ -42,19 +43,29 @@ feather.ns("fazechat");
           }
           me.get('#' + stripHrefId(e.target)).addClass('active'); // show the new tab
           
+        });
+        
+        // Tab close button click event
+        me.get('a[data-toggle="tab"] button.close').click(function(e) {
+          
+          var tabId = $(this).attr("data-tab-id");
+          
+          me.removeTab(tabId);          
         });     
         
       },
       
       addTab: function(tabData) {
         var me = this;
-        var tabId = me.id + "_" + tabData.id;
+        var tabId = me.id + "_" + tabData.id
+          , newTab = {};
         
-        me.get("#chat-tabs-nav").append('<li><a data-toggle="tab" href="#'
-        + tabId + '">' + tabData.name + '<button class="close">&times;</button></a></li>');
+        // Append the tab
+        newTab.tab = $('<li><a data-toggle="tab" href="#' + tabId + '">' + tabData.name 
+        + '<button data-tab-id="' + tabData.id + '" class="close">&times;</button></a></li>').appendTo(me.get("#chat-tabs-nav"));
         
-        var $new = $(this).closest('li').clone().appendTo('#cart ul')
-        me.get("#chat-tabs-body").append('<div class="tab-pane" id="' + tabId + '" ></div>').each(function() {
+        // Append the body
+        newTab.body = $('<div class="tab-pane" id="' + tabId + '" ></div>').appendTo(me.get("#chat-tabs-body")).each(function() {
 
           feather.Widget.load({
             path: "widgets/chatController/chatPanel/",
@@ -63,11 +74,37 @@ feather.ns("fazechat");
             clientOptions: {
               parent: me,
               container: $("#" + tabId),
-              keepContainerOnDispose: true
+              keepContainerOnDispose: false
             }
           });
         });
 
+        // Select new tab if none are selected
+        if (!me.get("ul.chat-tabs-nav li.active").length) {
+          var tabs = me.get('#chat-tabs-nav a');
+          $(_.last(tabs)).tab('show');
+        }
+        
+        me.tabList[tabData.id] = newTab;
+      },
+      
+      removeTab: function(tabId) {
+        var me = this;
+        
+        var tabData = me.tabList[tabId];
+
+        // Remove each chat element, like the tab and content area
+        _.each(me.tabList[tabId], function(item, key) {
+          item.remove();
+        });
+        
+        // Select new tab if none are selected
+        if (!me.get("ul.chat-tabs-nav li.active").length) {
+          var tabs = me.get('#chat-tabs-nav a');
+          $(_.last(tabs)).tab('show');
+        }
+        
+        delete me.tabList[tabId];
       }
     }
   });
