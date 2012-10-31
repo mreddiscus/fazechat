@@ -20,6 +20,10 @@ feather.ns("fazechat");
         me.domEvents.bind(me.get('#logout'), 'click', function(e) {
           me.logout();
         });
+        
+        if (feather.auth.user) {
+          me.get("#username").empty().append(feather.auth.user.userName);
+        }
 
       },
 
