@@ -66,7 +66,8 @@ feather.ns("fazechat");
         
         // Put the scrollbar to the bottom
         var chatList = me.get("#chat-list");
-        chatList.scrollTop( chatList.height() );
+        chatList.scrollTop( chatList[0].scrollHeight );
+
       },
       
       newMedia: function(args) {
